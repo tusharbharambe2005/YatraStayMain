@@ -17,7 +17,9 @@ const passport = require("passport")
 const LocalStrategy = require("passport-local")
 const User = require("./models/user.js")
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl = process.env.ATLASDB_URL;
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -27,7 +29,7 @@ app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname,"/public")))
 
 const sessionOptions = {
-    secret:"mysupersecretcode",
+    secret:process.env.SECRET,
     resave:false,
     saveUninitialized : true,
     cookie:{
@@ -40,7 +42,7 @@ const sessionOptions = {
 
 async function main() {
     try {
-        await mongoose.connect(MONGO_URL);
+        await mongoose.connect(dbUrl);
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("MongoDB connection error:", error);
@@ -113,11 +115,11 @@ app.use("/",userRouter)
 // });
 
 app.use((err, req, res, next) => {
-    const { statusCode = 500, message = "Something went wrong!" } = err;
-    // res.status(statusCode).send(message);
-    res.status(statusCode).render("error.ejs",{err})
-});
-
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = "Something went wrong!";
+    res.status(statusCode).render("error", { err });
+  });
+      
 
 const PORT = 8080;
 app.listen(PORT, () => {

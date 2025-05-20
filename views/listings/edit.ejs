@@ -1,65 +1,86 @@
-<% layout("/layouts/boilerplate") -%>
-
-  <body>
-    <div class="row mt-3">
-      <div class="col-8 offset-2">
-    <h3>Edit your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate  enctype="multipart/form-data">
+<% layout('/layouts/boilerplate') -%>
+<form
+  action="/listings/<%=listing._id%>?_method=put"
+  method="post"
+  novalidate
+  class="needs-validation"
+  enctype="multipart/form-data"
+>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Edit Your Listing</h3>
+      <!--title -->
       <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
-        <div class="invalid-feedback">Title should be valid.</div>
-
+        <label for="title" class="form-lable">Title</label>
+        <input
+          type="text"
+          value="<%= listing.title%>"
+          name="listing[title]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Add a catchy title!</div>
+        <div class="valid-feedback">Title looks good</div>
+      </div>
+      <!-- description -->
+      <div class="mb-3">
+        <label for="description" class="form-lable">Description</label>
+        <textarea name="listing[description]" class="form-control" required>
+<%= listing.description%></textarea
+        >
+        <div class="invalid-feedback">Add a shorter Description</div>
+        <div class="valid-feedback">Looks good</div>
+      </div>
+      <!-- img url -->
+      <div class="mb-3">
+        Original Listing Image <br>
+        <img src="<%=originalImageUrl %>"/>
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-
-        <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
-        <div class="valid-feedback">good lock Description.</div>
-                    <div class="invalid-feedback">plese enter a short Description.</div>
+        <label for="img" class="form-lable">UPload new Image</label>
+        <input type="file" class="form-control" name="listing[image]" />
       </div>
-
-      <div class="mb-3">
-        <p>Original Listing image</p>
-        <img src="<%= originalImageUrl %>" >     
-      </div>
-
-      <div class="mb-3">
-        <label for="image" class="form-label">Uplode new Image</label>
-        <input name="listing[image]"  type="file" class="form-control"      />
-
-      </div>
-      <div class="row ">
+      <div class="row">
+        <!-- price -->
         <div class="mb-3 col-md-4">
-          <label for="price" class="form-label">Price</label>
-  
-          <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required/>
-          <div class="valid-feedback">valid Price.</div>
-          <div class="invalid-feedback">Price should be valid.</div>
-          
+          <label for="price" class="form-lable">Price</label>
+          <input
+            type="number"
+            value="<%= listing.price%>"
+            name="listing[price]"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Add a valid Price</div>
+          <!-- <div class="valid-feedback">Add a valid Price</div> -->
         </div>
-  
-        <div class="mb-3 col-md-8">
-          <label for="country" class="form-label">Country</label>
-  
-          <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required/>
-          <div class="valid-feedback">best Country.</div>
-          <div class="invalid-feedback">Country name should be valid.</div>
-         
+        <!-- country -->
+        <div class="mb-3 col-md-4">
+          <label for="country" class="form-lable">Country</label>
+          <input
+            type="text"
+            value="<%= listing.country%>"
+            name="listing[country]"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Add a valid Country</div>
         </div>
       </div>
-      
+      <!-- location -->
       <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-
-        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required/>
-        <div class="valid-feedback">good locking Location.</div>
-        <div class="invalid-feedback"> Location name should be valid.</div>
-    
+        <label for="location" class="form-lable">Location</label>
+        <input
+          type="text"
+          value="<%= listing.location%>"
+          name="listing[location]"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Add a valid Location</div>
       </div>
-      <button class="btn edit-btn mt-3">Edit</button>
-    </form>
-          
+      <button class="btn btn-dark editbtn mb-3 bt-3">Update</button>
+    </div>
   </div>
-</div>
-  </body>
+</form>
+<script src="../../public/js/script.js"></script>

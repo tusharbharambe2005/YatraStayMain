@@ -1,0 +1,382 @@
+/* General */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  min-height: calc(100vh - 11rem);
+}
+
+/* Navbar */
+.navbar {
+  height: 5rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'Helvetica Neue', sans-serif;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.navbar-brand {
+  color: #fe424d !important;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 1.5rem;
+}
+.nav-link {
+  color: #555 !important;
+  font-size: 1.1rem;
+  margin: 0 0.8rem;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: #fe424d !important;
+}
+.search-inp {
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+.search-inp:focus {
+  border-color: #fe424d;
+  box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+}
+.search-btn {
+  background: #fe424d;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  border: none;
+}
+.search-btn:hover {
+  background: #e03b45;
+}
+.navbar i {
+  margin-right: 0.4rem;
+}
+
+/* Filters */
+#filters-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: auto;
+  padding: 1rem 2rem;
+  gap: 2rem;
+}
+
+#filters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+#filters::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.filter {
+  flex: 0 0 auto;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  margin-top: 1rem;
+}
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.filter p {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+.tax-toggel {
+  flex-shrink: 0;
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  margin: 1.5rem 1rem;
+  border-radius: 1rem;
+  transition: transform 0.2s ease;
+}
+.listing-card:hover {
+  transform: scale(1.02);
+}
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+}
+.card-body {
+  padding: 0.5rem 0;
+}
+.card-text {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+.card-img-overlay {
+  opacity: 0;
+  transition: 0.2s;
+}
+.card-img-overlay:hover {
+  opacity: 0.1;
+  background-color: white;
+}
+.listing-link {
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  height: 6rem;
+}
+.f-info {
+  display: flex;
+  background-color: #ebebeb;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+}
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+.f-info-links a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 1rem;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-socials i {
+  margin: 0 1rem;
+  font-size: 1.8rem;
+}
+
+/* Buttons */
+.add-btn,
+.editbtn {
+  background-color: #fe424d !important;
+  color: white;
+  border: none !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Show Page */
+.showtitle {
+  margin-bottom: 1rem;
+}
+.card-body .showtext {
+  font-size: 1.2rem;
+}
+.show-img {
+  height: 45vh;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Map */
+#map {
+  width: 90vh;
+  height: 50vh;
+  border-radius: 1rem;
+  margin: 2rem auto;
+}
+/* ----------- Responsive for Tablet & Laptop ----------- */
+@media (min-width: 1201px) and (max-width: 1200px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 0 2rem;
+  }
+  .navbar-brand {
+    font-size: 1.8rem;
+  }
+  .nav-link {
+    font-size: 1.05rem;
+  }
+  .search-inp {
+    width: 200px;
+  }
+
+  /* Filters */
+  #filters-wrapper {
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+  }
+  #filters {
+    gap: 1.5rem;
+  }
+
+  .tax-toggel {
+    padding: 0 1rem;
+    height: 3rem;
+  }
+
+  /* Cards */
+  .listing-card {
+    margin: 1rem 0.5rem;
+  }
+  .card-img-top {
+    height: 18rem;
+  }
+
+  .card-text {
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+  .f-info {
+    padding: 1rem 2rem;
+  }
+  .f-info-links,
+  .f-info-socials,
+  .f-info-brand {
+    font-size: 1.1rem;
+    margin: 0 0.8rem;
+  }
+
+  /* Show Page */
+  .show-img {
+    height: 35vh;
+  }
+  .card-body .showtext {
+    font-size: 1.1rem;
+  }
+
+  /* Map */
+  #map {
+    width: 95%;
+    height: 45vh;
+  }
+}
+
+
+/* ----------- Responsive Styling ----------- */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.6rem;
+    padding-left: 0;
+  }
+  .nav-link {
+    font-size: 1rem;
+    margin: 0.3rem 0.6rem;
+  }
+  .search-inp {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .search-btn {
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+
+  /* Filters */
+  #filters-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  #filters {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .filter {
+    font-size: 0.8rem;
+  }
+
+  .tax-toggel {
+    width: 100%;
+    justify-content: space-between;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Cards */
+  .listing-card {
+    margin: 1rem 0.5rem;
+  }
+  .card-img-top {
+    height: 15rem;
+  }
+  .card-text {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+  }
+
+  /* Footer */
+  .f-info {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 1rem 0.5rem;
+    gap: 0.5rem;
+  }
+  .f-info-links,
+  .f-info-socials,
+  .f-info-brand {
+    font-size: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .f-info-socials i {
+    margin: 0 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  /* Show Page */
+  .show-img {
+    height: 30vh;
+  }
+  .card-body .showtext {
+    font-size: 1rem;
+  }
+
+  /* Map */
+  #map {
+    width: 100%;
+    height: 40vh;
+  }
+}
+
