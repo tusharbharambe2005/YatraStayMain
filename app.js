@@ -11,6 +11,7 @@ const ejsMate = require("ejs-mate")
 const listingsRouter = require("./routes/listings.js")
 const reviewsRouter = require("./routes/review.js")
 const userRouter = require("./routes/user.js")
+const MongoStore = require("connect-mongo");
 const session = require("express-session")
 const flash = require("connect-flash")
 const passport = require("passport")
@@ -98,6 +99,7 @@ app.use((req,res,next)=>{
 //     res.send(registerUser)
 // })
 
+app.use("/",listingsRouter)
 app.use("/listings",listingsRouter)
 app.use("/listings/:id/reviews",reviewsRouter)
 app.use("/",userRouter)
